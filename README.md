@@ -1,55 +1,38 @@
-# Product architecture · decision records
+05 / SYSTEMS THINKING
 
-Trade-offs behind an evolving financial workflow product.
+# Make the trade-off reviewable
 
 **Justin Joseph · Product Manager — FinTech, Trading Platforms & Decision Systems**
 
-[Read the detailed case study](docs/portfolio.md) · [Explore the flagship](https://github.com/justin5128/trade-platform-case-study)
+A growing prototype needs explicit responsibility boundaries and a reason to change them. More infrastructure is useful only when it solves a demonstrated product constraint.
 
-![Product architecture · decision records conceptual overview](assets/overview.svg)
+![Conceptual overview](assets/overview.svg)
 
-## Product problem
+## Read the case
 
-Prototype speed creates useful learning, but growing responsibilities can blur ownership and make failures difficult to isolate.
+| Document | What it demonstrates |
+| --- | --- |
+| **[Ten architecture decisions](docs/portfolio.md)** | Options, trade-offs, risks and specific reasons to revisit each choice |
+| **[Backup and recovery product](docs/recovery-design.md)** | Operational tooling, restore verification and migration readiness |
 
-## Objective and users
+## Product scope
 
-Make architectural choices explicit, reversible where possible and tied to product consequences.
+Prototype speed → ownership clarity → evidence-led separation → recoverable migration.
 
-**Users:** Product managers, engineering collaborators and platform operators.
+## My contribution
 
-## Constraints
+I make technical choices assessable through their user consequences, operating cost, validation requirements and reversibility. A decision includes the evidence that would change it.
 
-Existing spreadsheet workflows, API dependencies, migration cost, reliability and limited operational capacity.
+## Evidence and maturity
 
-## Architecture and decisions
+Ten decision records synthesize the prototype context and future choices. Backup artifacts support a dedicated recovery design brief; restoration and migration outcomes are not asserted.
 
-The records address presentation, data, orchestration and execution boundaries. The analytical subsystem remains opaque throughout.
+The portfolio documents product work and reasoning. It does not claim quantified adoption, commercial impact or trading performance.
 
-Retain the useful prototype while introducing clearer boundaries incrementally. Distinguish observed design direction from proposals requiring validation.
-
-## Evolution and evidence
-
-Ten records written for this portfolio explain the current prototype context and proposed migration choices. They are not backdated records or evidence that every migration has shipped.
-
-This documentation was written for the portfolio in September 2026. It describes product work and design reasoning; it does not claim independently verified adoption, returns or performance improvements.
-
-## My role and learning
-
-My contribution spans product requirements, workflow design, architecture decisions, hands-on diagnosis, AI-assisted development and iteration. AI-assisted implementation is part of the process; this is not a claim that I independently hand-coded every component.
-
-An architecture decision should include a reason to revisit it, not only a preferred technology.
-
-## Explore
-
-- [Detailed documentation](docs/portfolio.md)
-- [Portfolio profile](https://github.com/justin5128)
-- [Disclosure boundary](SECURITY.md)
-
-## Intentionally excluded
-
-This repository is a sanitised product and architecture case study. Production source code, credentials, proprietary analytical methods, operational configurations and confidential business logic are intentionally excluded.
+[Portfolio profile](https://github.com/justin5128) · [All project workstreams](https://github.com/justin5128/trade-platform-case-study/blob/main/docs/project-index.md) · [Disclosure boundary](SECURITY.md)
 
 ---
+
+This repository is a sanitised product and architecture case study. Production source code, credentials, proprietary analytical methods, operational configurations and confidential business logic are intentionally excluded.
 
 © Justin Joseph. Portfolio documentation. Production implementation and proprietary methods are not included.
