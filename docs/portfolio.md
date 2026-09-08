@@ -49,7 +49,7 @@ Parallel writers or ambiguous ownership can create inconsistent state.
 
 Pilot a non-execution read model, compare behavior, then define a reversible cutover.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** concurrent edits produce repeatable reconciliation failures or a bounded persistence pilot demonstrates a clear operational benefit.
 
 ---
 
@@ -87,7 +87,7 @@ Late responses can overwrite newer selections if item identity is lost.
 
 Consolidate ownership, verify delayed-response behavior and then simplify duplicate presentation paths.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** the same user action produces conflicting states across clients, or response-order checks expose unclear ownership.
 
 ---
 
@@ -125,7 +125,7 @@ More frequent polling can increase contention without improving usable freshness
 
 Measure freshness and request pressure, prototype event delivery in isolation and validate missed-event recovery.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** measured freshness needs cannot be met by bounded polling without unacceptable request pressure, and reconnect recovery has been demonstrated.
 
 ---
 
@@ -163,7 +163,7 @@ A new frontend can retain old coupling if interface ownership stays unclear.
 
 Document the read boundary, validate a synthetic view, then plan a reversible UI transition.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** interface release constraints repeatedly delay necessary product changes and a stable read boundary can support independent releases.
 
 ---
 
@@ -201,7 +201,7 @@ A single gateway can become a dependency that blocks the workflow.
 
 Validate in a simulator and non-production environment before considering a separately governed release.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** confirmed integration requirements demand a separate network boundary and an owner can support its availability and maintenance.
 
 ---
 
@@ -239,7 +239,7 @@ A background backlog can delay interactive work or create unfairness.
 
 Inventory consumers, measure demand, trial coordinated scheduling and define recovery behavior.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** observed aggregate demand causes contention between interactive and background work, or queued-work aging reveals unfairness.
 
 ---
 
@@ -277,7 +277,7 @@ Distributed state can become harder to reconcile if boundaries are introduced wi
 
 Document consumer expectations and test boundary failures before changing deployment topology.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** a failure in one responsibility repeatedly disrupts unrelated user tasks, or separate release ownership becomes necessary.
 
 ---
 
@@ -315,7 +315,7 @@ Hidden secondary panels may conceal pending work.
 
 Test synthetic tasks on narrow and wide views, then refine priorities from observed confusion.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** narrow-screen task reviews reveal hidden essential context or maintaining two experiences creates inconsistent workflow meaning.
 
 ---
 
@@ -353,7 +353,7 @@ Duplicate or out-of-order records can mislead review.
 
 Define generic event meaning, test synthetic replay and reconcile before any migration.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** reviewers cannot explain a current outcome from retained activity, or replay exercises reveal duplication and ordering ambiguity.
 
 ---
 
@@ -391,8 +391,10 @@ Two competing owners during transition can create divergence.
 
 Baseline behavior, compare a shadow read path, cut over one owner and preserve recovery. Backup existence alone does not prove restorability.
 
-**Revisit when:** evidence shows the chosen boundary no longer meets user needs, operational ownership changes, or validation exposes inconsistent workflow behavior.
+**Revisit when:** one responsibility has a tested baseline, a validated replacement and an agreed recovery path; reconsider the sequence if parallel ownership creates divergence.
 
 ## Supporting work: backup management
+
+[Read the dedicated recovery product case](recovery-design.md).
 
 Backup-manager and dated-backup artifacts exist in the project inventory. They represent operational automation work. A public extension is to define restore verification, ownership and retention requirements. This portfolio does not claim tested recovery times or successful restoration.
